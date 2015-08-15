@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="calendarDataStore" class="com.diosoft.lecture11.datastore.CalendarDataStoreImpl">
+        <constructor-arg type="java.lang.String" value="D:\Projects\HW\src\com\diosoft\lecture11\events.db"/>
+    </bean>
+
+    <bean id="calendarService" class="com.diosoft.lecture11.service.CalendarServiceImpl">
+        <constructor-arg ref="calendarDataStore"/>
+    </bean>
+
+    <bean id="xmlExport" class="com.diosoft.lecture11.datastore.XmlDataStoreExportImpl">
+        <constructor-arg ref="calendarDataStore"/>
+    </bean>
+
+    <bean id="xmlImport" class="com.diosoft.lecture11.datastore.XmlDataStoreImportImpl">
+        <constructor-arg ref="calendarDataStore"/>
+    </bean>
+</beans>
