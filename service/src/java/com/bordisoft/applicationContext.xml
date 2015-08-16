@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="calendarDataStore" class="com.bordisoft.datastore.CalendarDataStoreImpl">
+        <constructor-arg type="java.lang.String" value="C:\Users\Bordiart\AppData\Local\Temp\events.db"/>
+    </bean>
+
+    <bean id="calendarService" class="com.bordisoft.service.CalendarServiceImpl">
+        <constructor-arg ref="calendarDataStore"/>
+    </bean>
+
+    <bean id="xmlExport" class="com.bordisoft.datastore.XmlDataStoreExportImpl">
+        <constructor-arg ref="calendarDataStore"/>
+    </bean>
+
+    <bean id="xmlImport" class="com.bordisoft.datastore.XmlDataStoreImportImpl">
+        <constructor-arg ref="calendarDataStore"/>
+    </bean>
+
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <!-- does not necessarily have to be the same name as the bean to be exported -->
+        <property name="serviceName" value="CalendarService"/>
+        <property name="service" ref="calendarService"/>
+        <property name="serviceInterface" value="com.bordisoft.service.CalendarService"/>
+        <!-- defaults to 1099 -->
+        <property name="registryPort" value="1199"/>
+    </bean>
+</beans>
