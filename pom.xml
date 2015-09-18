@@ -94,7 +94,7 @@
 
   <modules>
     <module>client</module>
-    <!--<module>service</module>-->
+    <module>service</module>
   </modules>
 
 </project>

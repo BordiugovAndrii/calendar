@@ -133,9 +133,8 @@
     <outputDirectory>target/classes</outputDirectory>
     <finalName>${artifactId}-${version}</finalName>
     <testOutputDirectory>target/test-classes</testOutputDirectory>
-    <sourceDirectory>src/java</sourceDirectory>
-    <scriptSourceDirectory>src/scripts</scriptSourceDirectory>
-    <testSourceDirectory>tests</testSourceDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/main/test</testSourceDirectory>
 
     <plugins>
       <plugin>
