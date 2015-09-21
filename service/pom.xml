@@ -11,7 +11,6 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>service</name>
-  <url>http://bordisoft.com</url>
 
   <properties>
     <org.springframework.version>3.0.0.RELEASE</org.springframework.version>
@@ -131,7 +130,7 @@
   <build>
     <directory>target</directory>
     <outputDirectory>target/classes</outputDirectory>
-    <finalName>${artifactId}-${version}</finalName>
+    <finalName>${project.artifactId}-${project.version}</finalName>
     <testOutputDirectory>target/test-classes</testOutputDirectory>
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/main/test</testSourceDirectory>
